@@ -1,18 +1,15 @@
 #include <iostream> 
 
 class Rational {
+    // friend bool operator==(const Rational& r1, const Rational& r2);
 private:
     int denom;
     int num;
 public:
-    //implement a default-constructor that initializes the object 0/1
-    Rational () : num(0), denom(1) {}
-    //implement a constructor with one argument that initializes the object n/1
-    Rational(int n) : num(n), denom(1){}
-    //implement a constructor with two arguments
-    Rational(int n, int d) : num(n), denom(d) {}
+    Rational(int p =0, int q = 1) : num{p}, denom(q) {}
     
-    friend bool operator==(const Rational& r1, const Rational& r2){
+    friend bool operator==(const Rational& r1, const Rational& r2){ //on met & car si on met rien ça les recopie et nous on veut directement travailler avec r1 et r2 sans les recopier
+    //const c'est pour pas les modifier (par ex on pourra pas faire r1.num = 0)
         return r1.num*r2.denom==r1.denom*r2.num;
     }
     
@@ -25,6 +22,7 @@ public:
     double to_float() const {
         return static_cast<double>(num) / denom;
     }
+    //j'ai trouvé ça sur internet mais jsp pourquoi sans cette partie ça ne fonctionne pas
     friend std::ostream& operator<<(std::ostream& os, const Rational& r) {
         os << r.num << "/" << r.denom;
         return os;
