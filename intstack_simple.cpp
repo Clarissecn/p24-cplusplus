@@ -14,6 +14,7 @@ private:
     // votre code ici
     int tab[SIZE];
     int elem = 0;
+
 public:
     void push(int e)
     {
