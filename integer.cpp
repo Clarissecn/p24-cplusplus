@@ -1,11 +1,11 @@
 class Integer{
     private:
-        int value{};
-    public:
+        int value{};  
+    public:  
         void incr(){
-            value=value +1;
+            value=value+1;
         }
-        Integer (intv){
+        Integer (int v){
             value=v;
         }
 };
